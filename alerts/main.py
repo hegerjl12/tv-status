@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
 def index():
-    return "Home Page"
+    return "Home Page Test"
