@@ -2,7 +2,7 @@ from flask import Flask, request, abort, render_template, url_for, flash, redire
 from deta import Deta
 
 
-deta = Deta('b0bjxtd6_PyvkvLdwfvHVm7k7MccimkFX1H3K3ZMr')
+deta = Deta('b0xrzj95_36AvMwmWFKZuzkk4sZmA3wki6VrAQHNG')
 db = deta.Base('SPY')
 
 app = Flask(__name__)
