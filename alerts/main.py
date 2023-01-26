@@ -6,7 +6,7 @@ app = Flask(__name__)
 deta = Deta('b0xrzj95_36AvMwmWFKZuzkk4sZmA3wki6VrAQHNG')
 db = deta.Base('SPY')
 
-bool test = False
+test = False
 
 @app.route('/', methods=["GET"])
 def index():
