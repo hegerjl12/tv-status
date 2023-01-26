@@ -1,20 +1,19 @@
 from flask import Flask, request, abort, render_template, url_for, flash, redirect
 from deta import Deta
 
+app = Flask(__name__)
 
 deta = Deta('b0xrzj95_36AvMwmWFKZuzkk4sZmA3wki6VrAQHNG')
 db = deta.Base('SPY')
 
-#bool test = False
-
-app = Flask(__name__)
+bool test = False
 
 @app.route('/', methods=["GET"])
 def index():
-    #if test:
-    #    return "Home Page True"
-    #else:
-    return  "Home Page False"
+    if test:
+        return "Home Page True"
+    else:
+        return  "Home Page False"
 
 @app.route('/spy_webook', methods=['POST'])
 def spy_webhook():
