@@ -5,16 +5,16 @@ from deta import Deta
 deta = Deta('b0xrzj95_36AvMwmWFKZuzkk4sZmA3wki6VrAQHNG')
 db = deta.Base('SPY')
 
-bool test = False
+#bool test = False
 
 app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
 def index():
-    if test:
-        return "Home Page True"
-    else:
-        return  "Home Page False"
+    #if test:
+    #    return "Home Page True"
+    #else:
+    return  "Home Page False"
 
 @app.route('/spy_webook', methods=['POST'])
 def spy_webhook():
