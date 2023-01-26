@@ -11,7 +11,10 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
 def index():
-    return "Home Page Test"
+    if test:
+        return "Home Page True"
+    else:
+        return  "Home Page False"
 
 @app.route('/spy_webook', methods=['POST'])
 def spy_webhook():
