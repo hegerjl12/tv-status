@@ -14,7 +14,7 @@ spy1h_db = deta.Base('SPY1h')
 
 @app.route('/', methods=["GET"])
 def index():
-    return  "Home Page"
+    return  "Home Page v1.0"
 
 @app.route('/spy_webhook', methods=['POST'])
 def spy_webhook():
