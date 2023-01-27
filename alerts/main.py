@@ -4,9 +4,12 @@ from deta import Deta
 app = Flask(__name__)
 
 deta = Deta('b0hip04s_76Lucyw7JK6pt3vKtpD4kUmZZfQKfuwo')
-spy15m_db = deta.Base('SPY15m')
 spy1m_db = deta.Base('SPY1m')
-
+spy3m_db = deta.Base('SPY3m')
+spy5m_db = deta.Base('SPY5m')
+spy15m_db = deta.Base('SPY15m')
+spy30m_db = deta.Base('SPY30m')
+spy1h_db = deta.Base('SPY1h')
 
 
 @app.route('/', methods=["GET"])
@@ -28,8 +31,28 @@ def spy_webhook():
                 {"signal": alert_direction, "price": alert_price},
                 'current' )
 
+        if alert_timeframe == '3m':
+            spy3m_db.put(
+                {"signal": alert_direction, "price": alert_price},
+                'current' )
+
+        if alert_timeframe == '5m':
+            spy5m_db.put(
+                {"signal": alert_direction, "price": alert_price},
+                'current' )
+
         if alert_timeframe == '15m':
             spy15m_db.put(
+                {"signal": alert_direction, "price": alert_price},
+                'current' )
+
+        if alert_timeframe == '30m':
+            spy30m_db.put(
+                {"signal": alert_direction, "price": alert_price},
+                'current' )
+
+        if alert_timeframe == '1h':
+            spy1h_db.put(
                 {"signal": alert_direction, "price": alert_price},
                 'current' )
 
