@@ -10,6 +10,7 @@ spy5m_db = deta.Base('SPY5m')
 spy15m_db = deta.Base('SPY15m')
 spy30m_db = deta.Base('SPY30m')
 spy1h_db = deta.Base('SPY1h')
+spy_current_price_db = deta.Base('SPY_PRICE')
 
 
 @app.route('/', methods=["GET"])
@@ -54,6 +55,11 @@ def spy_webhook():
         if alert_timeframe == '1h':
             spy1h_db.put(
                 {"signal": alert_direction, "price": alert_price},
+                'current' )
+            
+        if alert_timeframe == 'current':
+            spy_current_price_db.put(
+                {"price": alert_price},
                 'current' )
 
         return 'success', 200
